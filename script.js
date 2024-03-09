@@ -1,14 +1,40 @@
-let isPlaying = false;
+document.addEventListener('DOMContentLoaded', function () {
+    navigateToHome();
+});
 
-function togglePlayPause() {
-    isPlaying = !isPlaying;
-    const playPauseButton = document.getElementById('playPauseButton');
-    playPauseButton.textContent = isPlaying ? 'Пауза' : 'Слушать сейчас';
-    // Здесь добавь логику для проигрывания музыки, например, путем изменения классов и т.д.
+function navigateToHome() {
+    hideAllPages();
+    document.getElementById('home').style.display = 'block';
 }
 
-function changeVolume() {
-    const volumeControl = document.getElementById('volumeControl');
-    const volumeValue = volumeControl.value;
-    // Здесь добавь логику для управления громкостью, например, изменением стилей или использование аудио API
+function navigateToPlayer() {
+    hideAllPages();
+    document.getElementById('player').style.display = 'block';
 }
+
+function hideAllPages() {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+        page.style.display = 'none';
+    });
+}
+
+function openTrackSelection() {
+    const fileInput = document.getElementById('fileInput');
+    fileInput.click();
+
+    fileInput.addEventListener('change', function () {
+        const audioPlayer = document.getElementById('audioPlayer');
+        const selectedFile = fileInput.files[0];
+
+        if (selectedFile) {
+            const objectURL = URL.createObjectURL(selectedFile);
+            audioPlayer.src = objectURL;
+        }
+    });
+}
+
+document.getElementById('volume').addEventListener('input', function () {
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.volume = parseFloat(this.value);
+});

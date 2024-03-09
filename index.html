@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Музыкальный Сервис</title>
+    <title>Музыкальный сайт</title>
 </head>
-
 <body>
-    <header>
-        <div class="logo">Музыкальный Сервис</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Главная</a></li>
-                <li><a href="#discover">Поиск</a></li>
-                <li><a href="#genres">Жанры</a></li>
-                <li><a href="#favorites">Избранное</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h1>Слушайте свою любимую музыку онлайн</h1>
-            <p>Бесплатно и без ограничений. Наслаждайтесь миллионами треков в любое время.</p>
-            <div class="music-controls">
-                <button id="playPauseButton" onclick="togglePlayPause()">Слушать сейчас</button>
-                <input type="range" id="volumeControl" min="0" max="100" value="50" oninput="changeVolume()">
-            </div>
-        </section>
+    <!-- Home страница -->
+    <div id="home" class="page">
+        <h1>Добро пожаловать на наш сайт для прослушивания музыки оффлайн!</h1>
+        <p>Узнайте больше о нас, наших целях и преимуществах. Подписывайтесь на нас в социальных сетях.</p>
+        <button onclick="navigateToPlayer()">Начать прослушивание</button>
+    </div>
 
-        <section class="featured">
-            <h2>Популярные треки</h2>
-            <!-- Здесь можно добавить блоки с популярными треками -->
-        </section>
-    </main>
+    <!-- Player страница -->
+    <div id="player" class="page">
+        <h1>Музыкальный плеер</h1>
+        <input type="file" id="fileInput" accept=".mp3">
+        <audio id="audioPlayer" controls></audio>
+        <div>
+            <label for="volume">Громкость:</label>
+            <input type="range" id="volume" name="volume" min="0" max="1" step="0.1" value="1">
+        </div>
+        <button onclick="openTrackSelection()">Выбрать трек</button>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 Музыкальный Сервис</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
