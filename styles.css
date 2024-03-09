@@ -1,67 +1,36 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #282828;
+    color: #fff;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5em;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    margin: 0 15px;
-}
-
-main {
-    padding: 20px;
-}
-
-.hero {
+.page {
+    display: none;
     text-align: center;
-    padding: 50px 0;
-}
-
-/* Добавлены стили для кнопки воспроизведения и ползунка громкости */
-.music-controls {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
 }
 
 button {
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 16px;
     cursor: pointer;
+    background-color: #1DB954;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
 
-input[type="range"] {
-    width: 200px;
-    margin-top: 10px;
+button:hover {
+    background-color: #169344;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+input[type="file"] {
+    display: none;
 }
+
+label {
+    margin-right: 10px;
+}
+
