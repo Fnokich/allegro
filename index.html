@@ -22,17 +22,19 @@
         <button id="upload-btn">Загрузить</button>
     </header>
     
-    <div class="music-player">
-        <audio controls>
-            Your browser does not support the audio element.
-        </audio>
-        <input type="range" id="volume" name="volume" min="0" max="100">
-        <span id="current-time">0:00</span>
-    </div>
-
     <div class="music-list">
         <h2>Выберите музыку</h2>
         <!-- Здесь будет список загруженной музыки -->
+    </div>
+
+    <div class="controls">
+        <div class="seek-container">
+            <input type="range" id="seek" name="seek" min="0" max="100">
+            <span id="current-time">0:00</span>
+        </div>
+        <div class="volume-container">
+            <input type="range" id="volume" name="volume" min="0" max="100">
+        </div>
     </div>
 
     <script src="script.js"></script>
