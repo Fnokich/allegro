@@ -1,40 +1,24 @@
-document.addEventListener('DOMContentLoaded', function () {
-    navigateToHome();
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadBtn = document.getElementById('upload-btn');
+    const musicPlayer = document.querySelector('.music-player audio');
+    const volumeControl = document.getElementById('volume');
 
-function navigateToHome() {
-    hideAllPages();
-    document.getElementById('home').style.display = 'block';
-}
-
-function navigateToPlayer() {
-    hideAllPages();
-    document.getElementById('player').style.display = 'block';
-}
-
-function hideAllPages() {
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => {
-        page.style.display = 'none';
+    uploadBtn.addEventListener('click', function() {
+        // Реализация загрузки музыки
+        // Можно использовать File API для загрузки файлов
     });
-}
 
-function openTrackSelection() {
-    const fileInput = document.getElementById('fileInput');
-    fileInput.click();
-
-    fileInput.addEventListener('change', function () {
-        const audioPlayer = document.getElementById('audioPlayer');
-        const selectedFile = fileInput.files[0];
-
-        if (selectedFile) {
-            const objectURL = URL.createObjectURL(selectedFile);
-            audioPlayer.src = objectURL;
-        }
+    musicPlayer.addEventListener('timeupdate', function() {
+        // Обновление времени песни
+        const currentTime = Math.floor(musicPlayer.currentTime);
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = currentTime - minutes * 60;
+        const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        document.getElementById('current-time').textContent = formattedTime;
     });
-}
 
-document.getElementById('volume').addEventListener('input', function () {
-    const audioPlayer = document.getElementById('audioPlayer');
-    audioPlayer.volume = parseFloat(this.value);
+    volumeControl.addEventListener('input', function() {
+        // Изменение громкости
+        musicPlayer.volume = volumeControl.value / 100;
+    });
 });
