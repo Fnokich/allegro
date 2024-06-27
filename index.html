@@ -1,42 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allegril Music Player</title>
+    <title>Форма обращения на радио</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="allegril_logo.png" alt="Allegril Logo">
+    <div class="form-container">
+        <h2>Обращение на радио</h2>
+        <form action="submit_form.php" method="post">
+            <div class="form-group">
+                <label for="city">Город:</label>
+                <input type="text" id="city" name="city" placeholder="Введите город" required>
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Группы</a></li>
-                <li><a href="#">Альбомы</a></li>
-                <li><a href="#">Проигрыватель</a></li>
-            </ul>
-        </nav>
-        <button id="upload-btn">Загрузить</button>
-    </header>
-    
-    <div class="music-list">
-        <h2>Выберите музыку</h2>
-        <!-- Здесь будет список загруженной музыки -->
-    </div>
 
-    <div class="controls">
-        <div class="seek-container">
-            <input type="range" id="seek" name="seek" min="0" max="100">
-            <span id="current-time">0:00</span>
-        </div>
-        <div class="volume-container">
-            <input type="range" id="volume" name="volume" min="0" max="100">
-        </div>
-    </div>
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+            </div>
 
-    <script src="script.js"></script>
+            <div class="form-group">
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Текст обращения:</label>
+                <textarea id="message" name="message" rows="6" placeholder="Введите текст вашего обращения" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" name="submit" value="Отправить">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
